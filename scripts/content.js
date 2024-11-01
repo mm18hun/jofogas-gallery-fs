@@ -51,6 +51,7 @@ function getImages() {
         gallery.appendChild(img);
     }
 
+    // add close button
     var closeButton = document.createElement('a');
     closeButton.href = '#';
     closeButton.style.position = 'fixed';
@@ -63,17 +64,29 @@ function getImages() {
     closeButton.innerHTML = '&times;';
     gallery.appendChild(closeButton);
     closeButton.onclick = function() {
-        // close gallery
-        gallery.remove();
-        var galleryWrapper = document.querySelectorAll('[data-testid="adview-gallery-wrapper"]');
-        // remove content of galleryWrapper
-        galleryWrapper[0].style.display = 'none';
-        // show cover
-        var cover = document.getElementById('gallery-cover-container');
-        cover.style.display = 'block';
-        cover.style.overflow = 'hidden';
+        closeGallery(gallery);
     }
+
+    // press esc close the gallery
+    document.onkeydown = function(evt) {
+        evt = evt || window.event;
+        if (evt.keyCode == 27) {
+            closeGallery(gallery);
+        }
+    };  
+
     // add gallery to body
     document.body.appendChild(gallery);
     
+}
+
+function closeGallery(gallery) {
+    gallery.remove();
+    var galleryWrapper = document.querySelectorAll('[data-testid="adview-gallery-wrapper"]');
+    // remove content of galleryWrapper
+    galleryWrapper[0].style.display = 'none';
+    // show cover
+    var cover = document.getElementById('gallery-cover-container');
+    cover.style.display = 'block';
+    cover.style.overflow = 'hidden';
 }
