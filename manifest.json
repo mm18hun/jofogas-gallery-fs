@@ -1,0 +1,14 @@
+{
+    "manifest_version": 3,
+    "name": "Jófogás képnéző",
+    "version": "1.0",
+    "description": "Jófogás képek megtekintése teljes képernyőn.",
+    "content_scripts": [
+      {
+        "js": ["scripts/content.js"],
+        "matches": [
+          "https://*.jofogas.hu/*"
+        ]
+      }
+    ]
+  }
