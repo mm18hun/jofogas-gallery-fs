@@ -1,11 +1,15 @@
 console.log('extension loaded');
 
 var cover = document.getElementById('gallery-cover-container');
-cover.onclick = function() {
-    console.log('cover clicked');
-    // wait for gallery images to load
-    setTimeout(getImages, 300);
-};
+
+// if isset cover
+if (cover) {
+    cover.onclick = function() {
+        console.log('cover clicked');
+        // wait for gallery images to load
+        setTimeout(getImages, 300);
+    };
+}
 
 function getImages() {
     // get gallery images

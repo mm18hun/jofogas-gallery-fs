@@ -3,6 +3,9 @@
     "name": "Jófogás képnéző",
     "version": "1.0",
     "description": "Jófogás képek megtekintése teljes képernyőn.",
+    "action": {
+      "default_popup": "popup.html"
+    },
     "content_scripts": [
       {
         "js": ["scripts/content.js"],
